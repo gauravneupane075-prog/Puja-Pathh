@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Puja Path — Sacred Rituals, Wherever You Are</title>
+<meta name="description" content="Book experienced, verified Pandits for live virtual Hindu pujas — wherever in the world you call home.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Cinzel:wght@500;600&family=Mukta:wght@300;400;500;600&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --maroon:#5C1A1A; --maroon-deep:#3D0E0E; --saffron:#E2792E; --gold:#C99A3E; --gold-bright:#E8C373;
+  --cream:#FBF3E6; --sand:#F1E3CB; --ink:#2A1810; --ink-soft:#6B5544; --white:#FFFDF9;
+  --display:'Cormorant Garamond',serif; --label:'Cinzel',serif; --body:'Mukta','Noto Sans Devanagari',sans-serif;
+  --radius:18px; --ease:cubic-bezier(.22,1,.36,1);
+}
+[data-theme="dark"]{ --bg:#170C09; --bg-2:#20120D; --ink:#F3E6D4; --ink-soft:#C9AD8F; --card:rgba(60,32,20,.55); --line:rgba(232,195,115,.18); }
+[data-theme="light"]{ --bg:var(--cream); --bg-2:var(--sand); --ink:#2A1810; --ink-soft:#6B5544; --card:rgba(255,253,249,.7); --line:rgba(92,26,26,.12); }
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--body); background:var(--bg); color:var(--ink); overflow-x:hidden; transition:background .5s var(--ease), color .5s var(--ease); font-size:16px; line-height:1.6;}
+@media (prefers-reduced-motion: reduce){ *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important;} }
+::selection{background:var(--gold); color:var(--maroon-deep);}
+a{color:inherit; text-decoration:none;}
+img{max-width:100%; display:block;}
+button{font-family:inherit; cursor:pointer; border:none; background:none;}
+input,select,textarea{font-family:inherit; font-size:.95rem; color:var(--ink);}
+.eyebrow{font-family:var(--label); font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; color:var(--gold);}
+h1,h2,h3{font-family:var(--display); font-weight:600; color:var(--ink); letter-spacing:.01em;}
+.wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+:focus-visible{outline:2px solid var(--gold-bright); outline-offset:3px; border-radius:4px;}
+
+#ambient{position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden;}
+.diya{position:absolute; border-radius:50%; background:var(--gold-bright); filter:blur(1px);}
+@keyframes floaty{0%,100%{transform:translate(0,0);} 25%{transform:translate(14px,-22px);} 50%{transform:translate(-10px,-42px); opacity:.1;} 75%{transform:translate(-18px,-18px);}}
+
+header{position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:18px 36px; backdrop-filter:blur(14px); background:linear-gradient(to bottom, rgba(0,0,0,.18), transparent); transition:background .4s, padding .4s, box-shadow .4s;}
+header.scrolled{background:var(--card); box-shadow:0 8px 30px rgba(0,0,0,.12); padding:10px 36px; border-bottom:1px solid var(--line);}
+.logo{display:flex; align-items:center; gap:10px; font-family:var(--display); font-size:1.5rem; font-weight:600; color:var(--ink); cursor:pointer;}
+.logo svg{width:34px; height:34px;}
+.logo .full{display:flex; flex-direction:column; line-height:1;}
+.logo .full small{font-family:var(--label); font-size:.55rem; letter-spacing:.2em; color:var(--gold); font-weight:500;}
+nav.links{display:flex; gap:34px; font-size:.92rem; font-weight:500;}
+nav.links a{position:relative; color:var(--ink); opacity:.85; transition:opacity .25s; cursor:pointer;}
+nav.links a:hover, nav.links a.active{opacity:1;}
+nav.links a::after{content:''; position:absolute; left:0; bottom:-6px; width:0; height:1px; background:var(--gold); transition:width .3s var(--ease);}
+nav.links a:hover::after, nav.links a.active::after{width:100%;}
+.nav-actions{display:flex; align-items:center; gap:16px;}
+.theme-toggle{width:42px; height:24px; border-radius:20px; background:var(--card); border:1px solid var(--line); position:relative; transition:.3s;}
+.theme-toggle .dot{position:absolute; top:2px; left:2px; width:18px; height:18px; border-radius:50%; background:var(--gold); transition:transform .35s var(--ease);}
+[data-theme="dark"] .theme-toggle .dot{transform:translateX(18px);}
+.btn{font-family:var(--label); font-size:.74rem; letter-spacing:.12em; text-transform:uppercase; padding:13px 26px; border-radius:30px; font-weight:600; transition:transform .3s var(--ease), box-shadow .3s var(--ease), background .3s; display:inline-block; position:relative; overflow:hidden; border:none; cursor:pointer;}
+.btn-primary{background:linear-gradient(135deg, var(--saffron), var(--gold)); color:var(--maroon-deep); box-shadow:0 8px 26px rgba(226,121,46,.32);}
+.btn-primary:hover{transform:translateY(-2px); box-shadow:0 12px 32px rgba(226,121,46,.45);}
+.btn-ghost{border:1px solid var(--line); color:var(--ink); background:none;}
+.btn-ghost:hover{border-color:var(--gold); background:rgba(201,154,62,.08);}
+.btn:disabled{opacity:.45; cursor:not-allowed; transform:none !important;}
+.ripple{position:absolute; border-radius:50%; background:rgba(255,255,255,.5); transform:scale(0); animation:ripple .6s var(--ease); pointer-events:none;}
+@keyframes ripple{to{transform:scale(3); opacity:0;}}
+.menu-btn{display:none; font-size:1.6rem; color:var(--ink);}
+
+.hero{position:relative; min-height:100vh; display:flex; align-items:center; overflow:hidden; padding-top:90px;}
+.hero-bg{position:absolute; inset:0; z-index:-1; background:radial-gradient(ellipse 80% 60% at 50% 0%, rgba(226,121,46,.18), transparent 60%), linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);}
+.temple-silhouette{position:absolute; bottom:0; left:0; right:0; height:46%; opacity:.5; z-index:-1;}
+[data-theme="light"] .temple-silhouette{opacity:.18;}
+.hero-content{position:relative; z-index:2; width:100%; text-align:center;}
+.hero .eyebrow{display:block; margin-bottom:18px; opacity:0; animation:rise .9s var(--ease) .1s forwards;}
+.hero h1{font-size:clamp(2.8rem, 7vw, 5.6rem); line-height:1.05; max-width:920px; margin:0 auto 26px; opacity:0; animation:rise 1s var(--ease) .25s forwards;}
+.hero h1 em{font-style:italic; color:var(--saffron); font-weight:500;}
+.hero p.sub{max-width:560px; margin:0 auto 40px; color:var(--ink-soft); font-size:1.12rem; opacity:0; animation:rise 1s var(--ease) .45s forwards;}
+.hero .ctas{display:flex; gap:18px; justify-content:center; opacity:0; animation:rise 1s var(--ease) .6s forwards;}
+@keyframes rise{from{opacity:0; transform:translateY(26px);} to{opacity:1; transform:translateY(0);}}
+.om-mark{position:absolute; top:8%; left:50%; transform:translateX(-50%); width:120px; height:120px; opacity:.16; animation:spin-slow 90s linear infinite; z-index:1;}
+@keyframes spin-slow{to{transform:translateX(-50%) rotate(360deg);}}
+.scroll-cue{position:absolute; bottom:34px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px; font-size:.7rem; letter-spacing:.18em; color:var(--ink-soft); font-family:var(--label); opacity:0; animation:rise 1s var(--ease) .9s forwards;}
+.scroll-cue .line{width:1px; height:34px; background:linear-gradient(var(--gold), transparent); animation:scrollline 1.8s ease-in-out infinite;}
+@keyframes scrollline{0%,100%{opacity:.3;} 50%{opacity:1;}}
+
+.page-hero{position:relative; padding:160px 0 80px; overflow:hidden; background:radial-gradient(ellipse 80% 60% at 50% 0%, rgba(226,121,46,.16), transparent 60%), linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%); text-align:center;}
+.page-hero .eyebrow{display:block; margin-bottom:14px;}
+.page-hero h1{font-size:clamp(2.2rem,5vw,3.4rem); max-width:760px; margin:0 auto 16px;}
+.page-hero p{color:var(--ink-soft); max-width:560px; margin:0 auto; font-size:1.05rem;}
+.breadcrumb{font-size:.8rem; color:var(--ink-soft); margin-bottom:20px;}
+.breadcrumb a{color:var(--gold); cursor:pointer;}
+.breadcrumb a:hover{text-decoration:underline;}
+
+section{position:relative; padding:100px 0; z-index:1;}
+.section-head{text-align:center; max-width:680px; margin:0 auto 56px;}
+.section-head .eyebrow{display:block; margin-bottom:14px;}
+.section-head h2{font-size:clamp(2.1rem, 4vw, 3rem); margin-bottom:14px;}
+.section-head p{color:var(--ink-soft); font-size:1.05rem;}
+.divider{width:48px; height:2px; margin:18px auto 0; background:var(--gold); border-radius:2px; position:relative;}
+.divider::before, .divider::after{content:''; position:absolute; top:-3px; width:8px; height:8px; border-radius:50%; background:var(--saffron);}
+.divider::before{left:-14px;} .divider::after{right:-14px;}
+
+.reveal{opacity:0; transform:translateY(34px); transition:opacity .8s var(--ease), transform .8s var(--ease);}
+.reveal.in{opacity:1; transform:translateY(0);}
+
+.services-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(270px, 1fr)); gap:26px;}
+.service-card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:32px 26px; backdrop-filter:blur(10px); position:relative; overflow:hidden; transition:transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s;}
+.service-card:hover{transform:translateY(-8px); box-shadow:0 22px 50px rgba(0,0,0,.18); border-color:var(--gold);}
+.service-icon{width:54px; height:54px; border-radius:14px; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg, rgba(226,121,46,.18), rgba(201,154,62,.1)); margin-bottom:18px; font-size:1.6rem;}
+.service-card h3{font-size:1.32rem; margin-bottom:8px;}
+.service-card p.desc{color:var(--ink-soft); font-size:.92rem; margin-bottom:16px; min-height:42px;}
+.service-meta{display:flex; justify-content:space-between; align-items:center; font-size:.82rem; color:var(--ink-soft); margin-bottom:18px; font-family:var(--label); letter-spacing:.03em;}
+.service-meta .price{color:var(--saffron); font-weight:600;}
+.service-card .book-link{display:flex; align-items:center; justify-content:space-between; font-size:.82rem; font-weight:600; color:var(--ink); border-top:1px solid var(--line); padding-top:16px; letter-spacing:.03em; cursor:pointer;}
+.service-card .book-link span{transition:transform .3s var(--ease);}
+.service-card:hover .book-link span{transform:translateX(5px); color:var(--saffron);}
+
+.steps{display:grid; grid-template-columns:repeat(5,1fr); gap:20px; position:relative;}
+.steps::before{content:''; position:absolute; top:30px; left:6%; right:6%; height:1px; background:repeating-linear-gradient(to right, var(--gold) 0 6px, transparent 6px 14px); opacity:.5; z-index:0;}
+.step{text-align:center; position:relative; z-index:1;}
+.step .num{width:60px; height:60px; margin:0 auto 18px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:var(--bg); border:1.5px solid var(--gold); font-family:var(--display); font-size:1.3rem; color:var(--saffron); transition:transform .4s var(--ease), background .4s;}
+.step:hover .num{transform:scale(1.1) rotate(8deg); background:var(--gold); color:var(--maroon-deep);}
+.step h4{font-size:1rem; margin-bottom:6px; font-weight:600;}
+.step p{font-size:.84rem; color:var(--ink-soft);}
+
+.why-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:22px;}
+.why-card{padding:26px; border-radius:var(--radius); border:1px solid var(--line); transition:transform .35s var(--ease);}
+.why-card:hover{transform:translateY(-6px);}
+.why-card .ic{font-size:1.8rem; margin-bottom:14px; display:inline-block;}
+.why-card h4{font-size:1.08rem; margin-bottom:6px;}
+.why-card p{font-size:.88rem; color:var(--ink-soft);}
+
+.pandit-scroller{display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:26px;}
+.pandit-card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; transition:transform .4s var(--ease), box-shadow .4s var(--ease); display:flex; flex-direction:column;}
+.pandit-card:hover{transform:translateY(-6px); box-shadow:0 20px 44px rgba(0,0,0,.18);}
+.pandit-photo{width:100%; aspect-ratio:4/3; object-fit:cover; filter:saturate(1.05);}
+.pandit-body{padding:20px; display:flex; flex-direction:column; flex:1;}
+.pandit-body h3{font-size:1.15rem; margin-bottom:2px;}
+.pandit-tag{font-size:.78rem; color:var(--gold); font-family:var(--label); letter-spacing:.04em; margin-bottom:10px; display:block;}
+.pandit-bio{font-size:.86rem; color:var(--ink-soft); margin-bottom:14px; flex:1;}
+.pandit-meta{display:flex; gap:14px; font-size:.78rem; color:var(--ink-soft); margin-bottom:14px; flex-wrap:wrap;}
+.pandit-meta span{display:flex; align-items:center; gap:4px;}
+.pandit-price{font-family:var(--label); font-size:.8rem; color:var(--saffron); font-weight:600; margin-bottom:14px;}
+.pandit-actions{display:flex; gap:10px;}
+.pandit-actions .btn{flex:1; text-align:center; padding:10px; font-size:.68rem;}
+
+.filter-bar{display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-bottom:48px;}
+.filter-chip{padding:9px 18px; border-radius:30px; border:1px solid var(--line); font-size:.8rem; font-weight:500; transition:.25s; background:var(--card);}
+.filter-chip:hover{border-color:var(--gold);}
+.filter-chip.active{background:linear-gradient(135deg, var(--saffron), var(--gold)); color:var(--maroon-deep); border-color:transparent; font-weight:700;}
+
+.testi-track{display:flex; gap:24px; overflow-x:auto; padding-bottom:10px; scroll-snap-type:x mandatory;}
+.testi-track::-webkit-scrollbar{height:4px;}
+.testi-track::-webkit-scrollbar-thumb{background:var(--gold); border-radius:4px;}
+.testi-card{min-width:320px; scroll-snap-align:start; background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:30px; position:relative;}
+.testi-card .quote-mark{font-family:var(--display); font-size:3rem; color:var(--gold); opacity:.4; line-height:.5; display:block; margin-bottom:10px;}
+.testi-card p.txt{font-size:.95rem; margin-bottom:18px; color:var(--ink);}
+.testi-who{display:flex; align-items:center; gap:12px;}
+.testi-who img{width:42px; height:42px; border-radius:50%; object-fit:cover;}
+.testi-who .name{font-weight:600; font-size:.88rem;}
+.testi-who .loc{font-size:.76rem; color:var(--ink-soft);}
+.stars{color:var(--saffron); font-size:.82rem; margin-bottom:8px; letter-spacing:2px;}
+
+.cta-banner{margin:0 auto; max-width:1180px; border-radius:28px; padding:70px 50px; text-align:center; background:linear-gradient(135deg, var(--maroon), var(--maroon-deep)); position:relative; overflow:hidden; color:var(--cream);}
+.cta-banner::before{content:''; position:absolute; inset:0; opacity:.25; background:radial-gradient(circle at 80% 0%, var(--gold-bright), transparent 50%), radial-gradient(circle at 10% 100%, var(--saffron), transparent 50%);}
+.cta-banner h2{color:var(--cream); position:relative; z-index:1; font-size:clamp(1.9rem,4vw,2.7rem); margin-bottom:14px;}
+.cta-banner p{color:#E8D2BE; position:relative; z-index:1; margin-bottom:30px;}
+.cta-banner .btn-primary{position:relative; z-index:1;}
+
+.contact-strip{display:flex; flex-wrap:wrap; gap:18px; justify-content:center;}
+.contact-pill{display:flex; align-items:center; gap:10px; padding:14px 22px; border-radius:30px; background:var(--card); border:1px solid var(--line); font-size:.88rem; transition:.3s;}
+.contact-pill:hover{border-color:var(--gold); transform:translateY(-3px);}
+.contact-pill .ic{font-size:1.2rem;}
+.contact-pill b{display:block; font-size:.78rem; color:var(--ink-soft); font-weight:500;}
+
+footer{background:var(--maroon-deep); color:#E8D2BE; padding:80px 0 30px; position:relative; z-index:1;}
+.footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:40px; margin-bottom:50px;}
+.footer-grid h5{font-family:var(--label); font-size:.78rem; letter-spacing:.12em; color:var(--gold-bright); margin-bottom:18px; text-transform:uppercase;}
+.footer-grid ul{list-style:none; display:flex; flex-direction:column; gap:10px; font-size:.88rem;}
+.footer-grid ul a{opacity:.8; transition:opacity .25s, padding-left .25s; cursor:pointer;}
+.footer-grid ul a:hover{opacity:1; padding-left:4px; color:var(--gold-bright);}
+.footer-brand .logo{color:var(--cream); margin-bottom:14px;}
+.footer-brand p{font-size:.88rem; opacity:.75; max-width:280px; margin-bottom:18px;}
+.social-row{display:flex; gap:12px;}
+.social-row a{width:36px; height:36px; border-radius:50%; border:1px solid rgba(232,195,115,.3); display:flex; align-items:center; justify-content:center; transition:.3s;}
+.social-row a:hover{background:var(--gold); color:var(--maroon-deep); transform:translateY(-3px);}
+.newsletter{display:flex; margin-top:10px; border:1px solid rgba(232,195,115,.3); border-radius:30px; overflow:hidden;}
+.newsletter input{flex:1; background:none; border:none; padding:11px 16px; color:var(--cream); font-size:.84rem;}
+.newsletter input::placeholder{color:rgba(232,210,190,.5);}
+.newsletter button{padding:0 18px; background:var(--gold); color:var(--maroon-deep); font-weight:700; font-size:.8rem;}
+.footer-bottom{border-top:1px solid rgba(232,195,115,.15); padding-top:24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:.78rem; opacity:.7;}
+.footer-bottom .legal{display:flex; gap:18px;}
+
+.booking-layout{display:grid; grid-template-columns:1.5fr 1fr; gap:40px; align-items:flex-start;}
+.selected-pandit-card{display:flex; gap:18px; align-items:center; background:var(--card); border:1px solid var(--gold); border-radius:var(--radius); padding:20px; margin-bottom:32px;}
+.selected-pandit-card img{width:74px; height:74px; border-radius:50%; object-fit:cover; flex-shrink:0;}
+.selected-pandit-card .info h3{font-size:1.1rem; margin-bottom:2px;}
+.selected-pandit-card .info span{font-size:.8rem; color:var(--ink-soft);}
+.selected-pandit-card .change-link{margin-left:auto; font-size:.78rem; color:var(--saffron); font-weight:600; flex-shrink:0; cursor:pointer;}
+.no-pandit-banner{background:var(--card); border:1px dashed var(--gold); border-radius:var(--radius); padding:22px; display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:32px; flex-wrap:wrap;}
+.no-pandit-banner p{font-size:.9rem; color:var(--ink-soft);}
+
+.form-card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:34px;}
+.form-card h2{font-size:1.5rem; margin-bottom:24px;}
+.form-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+.form-group{display:flex; flex-direction:column; gap:7px;}
+.form-group.full{grid-column:1/-1;}
+.form-group label{font-size:.8rem; font-weight:600; color:var(--ink-soft); font-family:var(--label); letter-spacing:.03em;}
+.form-group input, .form-group select, .form-group textarea{padding:13px 16px; border-radius:10px; border:1px solid var(--line); background:var(--bg); color:var(--ink); transition:border-color .25s, box-shadow .25s;}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus{border-color:var(--gold); box-shadow:0 0 0 3px rgba(201,154,62,.18); outline:none;}
+.form-group textarea{resize:vertical; min-height:90px;}
+.form-actions{margin-top:28px; display:flex; gap:16px; align-items:center; flex-wrap:wrap;}
+.form-note{font-size:.78rem; color:var(--ink-soft);}
+
+.summary-card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:30px; position:sticky; top:110px;}
+.summary-card h3{font-size:1.2rem; margin-bottom:18px;}
+.summary-row{display:flex; justify-content:space-between; font-size:.88rem; padding:11px 0; border-bottom:1px solid var(--line); color:var(--ink-soft);}
+.summary-row b{color:var(--ink); font-weight:600;}
+.summary-row:last-of-type{border-bottom:none;}
+.summary-total{display:flex; justify-content:space-between; margin-top:16px; padding-top:16px; border-top:1px solid var(--gold); font-family:var(--label); font-size:.95rem;}
+.summary-total b{color:var(--saffron); font-size:1.2rem;}
+.summary-card .contact-pill{width:100%; justify-content:flex-start; margin-top:10px;}
+.payment-note{margin-top:16px; padding:14px; border-radius:10px; background:rgba(201,154,62,.1); font-size:.78rem; color:var(--ink-soft); border:1px solid var(--line);}
+
+.confirm-banner{display:none; background:linear-gradient(135deg, var(--saffron), var(--gold)); color:var(--maroon-deep); border-radius:var(--radius); padding:24px 28px; margin-bottom:28px; font-weight:600; align-items:center; gap:14px; flex-wrap:wrap;}
+.confirm-banner.show{display:flex;}
+
+.page{display:none;}
+.page.active{display:block;}
+
+@media (max-width: 900px){
+  nav.links{display:none;}
+  .menu-btn{display:block;}
+  .steps{grid-template-columns:1fr 1fr; row-gap:40px;}
+  .steps::before{display:none;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .booking-layout{grid-template-columns:1fr;}
+  .summary-card{position:static;}
+}
+@media (max-width:560px){
+  .hero .ctas{flex-direction:column; align-items:center;}
+  .footer-grid{grid-template-columns:1fr;}
+  section{padding:70px 0;}
+  .form-grid{grid-template-columns:1fr;}
+  .selected-pandit-card{flex-wrap:wrap;}
+}
+
+.skip-link{position:absolute; left:-9999px; top:0; background:var(--gold); color:var(--maroon-deep); padding:10px 16px; z-index:200;}
+.skip-link:focus{left:10px; top:10px;}
+</style>
+</head>
+<body data-theme="light">
+
+<a href="#main" class="skip-link">Skip to content</a>
+<div id="ambient" aria-hidden="true"></div>
+
+<header id="siteHeader">
+  <a class="logo" data-route="home" aria-label="Puja Path home">
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-opacity=".25" stroke-width="1"/>
+      <path d="M24 6c1 4-2 5-2 8 0 2 1 3 2 3s2-1 2-3c0-3-3-4-2-8z" fill="#E2792E"/>
+      <path d="M14 36c2-8 6-10 10-10s8 2 10 10c-3 2-7 3-10 3s-7-1-10-3z" fill="#C99A3E"/>
+      <path d="M24 22c-4 2-6 6-6 9 2 1 4 1 6 1s4 0 6-1c0-3-2-7-6-9z" fill="#5C1A1A" fill-opacity=".5"/>
+    </svg>
+    <span class="full">Puja Path<small>पूजा पथ</small></span>
+  </a>
+  <nav class="links" aria-label="Primary">
+    <a data-route="home" data-nav="home">Home</a>
+    <a data-route="home" data-anchor="services" data-nav="home">Services</a>
+    <a data-route="pandits" data-nav="pandits">Pandits</a>
+    <a data-route="home" data-anchor="how" data-nav="home">How it works</a>
+    <a data-route="home" data-anchor="contact" data-nav="home">Contact</a>
+  </nav>
+  <div class="nav-actions">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><span class="dot"></span></button>
+    <a href="https://wa.me/9779802890267" target="_blank" rel="noopener" class="btn btn-ghost">WhatsApp Us</a>
+    <a data-route="pandits" class="btn btn-primary">Book Now</a>
+    <button class="menu-btn" aria-label="Open menu">☰</button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ PAGE: HOME ============ -->
+<div class="page" id="page-home">
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <svg class="om-mark" viewBox="0 0 100 100" aria-hidden="true">
+      <text x="50" y="68" text-anchor="middle" font-size="70" fill="var(--gold)" font-family="serif">ॐ</text>
+    </svg>
+    <svg class="temple-silhouette" viewBox="0 0 1200 400" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 400 L0 300 L80 300 L80 250 L120 250 L120 200 L100 200 L100 150 L140 100 L180 150 L180 200 L160 200 L160 250 L220 250 L220 180 L260 180 L260 130 L300 80 L340 130 L340 180 L380 180 L380 260 L460 260 L460 220 L500 220 L500 170 L540 120 L580 170 L580 220 L620 220 L620 260 L700 260 L700 200 L740 200 L740 140 L780 90 L820 140 L820 200 L860 200 L860 260 L940 260 L940 230 L980 230 L980 180 L1020 130 L1060 180 L1060 230 L1100 230 L1100 300 L1200 300 L1200 400 Z" fill="var(--maroon)"/>
+    </svg>
+    <div class="wrap hero-content">
+      <span class="eyebrow">Virtual Puja • Verified Pandits • From Anywhere</span>
+      <h1>Bring the temple home, <em>wherever home is now.</em></h1>
+      <p class="sub">Puja Path connects Nepali families abroad with experienced Pandits for authentic, live-video Hindu rituals — booked in minutes, performed with full devotion.</p>
+      <div class="ctas">
+        <a data-route="pandits" class="btn btn-primary">Book a Puja</a>
+        <a data-route="home" data-anchor="how" class="btn btn-ghost">See How It Works</a>
+      </div>
+    </div>
+    <div class="scroll-cue"><span>SCROLL</span><div class="line"></div></div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Our Rituals</span>
+        <h2>A puja for every occasion</h2>
+        <p>From housewarmings to graha shanti, each ceremony is performed exactly as tradition prescribes.</p>
+        <div class="divider"></div>
+      </div>
+      <div class="services-grid" id="servicesGrid"></div>
+    </div>
+  </section>
+
+  <section style="background:var(--bg-2);">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Why Puja Path</span>
+        <h2>Trust, built into every booking</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal"><span class="ic">🛕</span><h4>Verified Pandits</h4><p>Every Pandit is vetted for lineage, training, and years of active practice.</p></div>
+        <div class="why-card reveal"><span class="ic">🪔</span><h4>Authentic Vidhi</h4><p>Rituals follow correct shastric procedure — same mantras, same sankalpa.</p></div>
+        <div class="why-card reveal"><span class="ic">🌐</span><h4>Any Time Zone</h4><p>We schedule around your country, not the other way around.</p></div>
+        <div class="why-card reveal"><span class="ic">🔒</span><h4>Secure Booking</h4><p>Transparent pricing, secure payment, and full booking history.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Simple Process</span>
+        <h2>From booking to blessing in five steps</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><div class="num">1</div><h4>Choose Puja</h4><p>Pick the ceremony you need.</p></div>
+        <div class="step reveal"><div class="num">2</div><h4>Select Pandit</h4><p>Browse profiles and pick your fit.</p></div>
+        <div class="step reveal"><div class="num">3</div><h4>Pick Date & Time</h4><p>Set it to your local time zone.</p></div>
+        <div class="step reveal"><div class="num">4</div><h4>Join by Video</h4><p>Connect live, anywhere in the world.</p></div>
+        <div class="step reveal"><div class="num">5</div><h4>Complete Ritual</h4><p>Receive guidance through every step.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--bg-2);">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Meet Our Pandits</span>
+        <h2>Experienced. Verified. Devoted.</h2>
+        <p>10 Pandits across Nepal, each specialized in different ceremonies.</p>
+        <div class="divider"></div>
+      </div>
+      <div class="pandit-scroller" id="panditPreview"></div>
+      <div style="text-align:center; margin-top:40px;">
+        <a data-route="pandits" class="btn btn-ghost">View All 10 Pandits</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Devotee Stories</span>
+        <h2>What families are saying</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="testi-track" id="testiTrack"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="cta-banner reveal">
+        <h2>Your next puja is one click away</h2>
+        <p>Choose your Pandit and book a time that works for your family, anywhere in the world.</p>
+        <a data-route="pandits" class="btn btn-primary">Start Your Booking</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="background:var(--bg-2);">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Get In Touch</span>
+        <h2>We're here, in your time zone</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="contact-strip reveal">
+        <a class="contact-pill" href="https://wa.me/9779802890267" target="_blank" rel="noopener"><span class="ic">💬</span><div><b>WhatsApp</b>+977 980-2890267</div></a>
+        <a class="contact-pill" href="mailto:Gauravneupane075@gmail.com"><span class="ic">✉️</span><div><b>Email</b>Gauravneupane075@gmail.com</div></a>
+        <div class="contact-pill"><span class="ic">📍</span><div><b>Office</b>Chitwan, Nepal</div></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============ PAGE: PANDITS ============ -->
+<div class="page" id="page-pandits">
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="breadcrumb"><a data-route="home">Home</a> / Pandits</div>
+      <span class="eyebrow">Step 1 of 2 — Choose Your Pandit</span>
+      <h1>10 experienced Pandits, ready to serve your family</h1>
+      <p>Browse by specialty, read each Pandit's background, then select one to continue to booking.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:20px;">
+    <div class="wrap">
+      <div class="filter-bar" id="filterBar"></div>
+      <div class="pandit-scroller" id="allPandits" style="grid-template-columns:repeat(auto-fit, minmax(300px,1fr));"></div>
+    </div>
+  </section>
+
+  <section style="background:var(--bg-2);">
+    <div class="wrap">
+      <div class="cta-banner reveal in">
+        <h2>Not sure who to choose?</h2>
+        <p>Message us your occasion and preferred date — we'll recommend the right Pandit for you.</p>
+        <a href="https://wa.me/9779802890267" target="_blank" rel="noopener" class="btn btn-primary">Ask on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============ PAGE: BOOKING ============ -->
+<div class="page" id="page-booking">
+
+  <section class="page-hero" style="padding-bottom:40px;">
+    <div class="wrap">
+      <div class="breadcrumb"><a data-route="home">Home</a> / <a data-route="pandits">Pandits</a> / Book</div>
+      <span class="eyebrow">Step 2 of 2 — Confirm Your Booking</span>
+      <h1>Complete your puja booking</h1>
+      <p>Fill in your ceremony details below. We'll confirm by WhatsApp or email within a few hours.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="wrap">
+
+      <div class="confirm-banner" id="confirmBanner">
+        <span style="font-size:1.6rem;">✅</span>
+        <span>Thank you! Your booking request has been recorded. We'll reach out on WhatsApp or email shortly to confirm.</span>
+      </div>
+
+      <div id="panditSlot"></div>
+
+      <div class="booking-layout">
+
+        <div class="form-card">
+          <h2>Booking Details</h2>
+          <form id="bookingForm">
+            <div class="form-grid">
+              <div class="form-group full">
+                <label for="pandit">Pandit</label>
+                <select id="pandit" required></select>
+              </div>
+              <div class="form-group full">
+                <label for="service">Puja / Service</label>
+                <select id="service" required></select>
+              </div>
+              <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" id="date" required>
+              </div>
+              <div class="form-group">
+                <label for="time">Time</label>
+                <input type="time" id="time" required>
+              </div>
+              <div class="form-group">
+                <label for="country">Your Country</label>
+                <input type="text" id="country" placeholder="e.g. Australia" required>
+              </div>
+              <div class="form-group">
+                <label for="timezone">Your Time Zone</label>
+                <input type="text" id="timezone" placeholder="e.g. AEST, GMT+10">
+              </div>
+              <div class="form-group">
+                <label for="language">Preferred Language</label>
+                <select id="language">
+                  <option>Nepali</option>
+                  <option>English</option>
+                  <option>Hindi</option>
+                  <option>Maithili</option>
+                  <option>Sanskrit (traditional)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="contactNumber">Contact Number</label>
+                <input type="tel" id="contactNumber" placeholder="+ Country code and number" required>
+              </div>
+              <div class="form-group full">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="you@example.com" required>
+              </div>
+              <div class="form-group full">
+                <label for="requests">Special Requests</label>
+                <textarea id="requests" placeholder="Any specific samagri, family tradition, or items you'd like the Pandit to know about"></textarea>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Confirm Booking Request</button>
+              <span class="form-note">No payment is taken yet — we'll confirm availability first.</span>
+            </div>
+          </form>
+        </div>
+
+        <div class="summary-card">
+          <h3>Booking Summary</h3>
+          <div class="summary-row"><span>Pandit</span><b id="sumPandit">—</b></div>
+          <div class="summary-row"><span>Service</span><b id="sumService">—</b></div>
+          <div class="summary-row"><span>Date</span><b id="sumDate">—</b></div>
+          <div class="summary-row"><span>Time</span><b id="sumTime">—</b></div>
+          <div class="summary-row"><span>Language</span><b id="sumLang">Nepali</b></div>
+          <div class="summary-total"><span>Estimated Total</span><b id="sumPrice">—</b></div>
+          <div class="payment-note">Payment placeholder — secure payment (eSewa / Khalti / Card) will be enabled at checkout. You will not be charged until your Pandit confirms.</div>
+          <a class="contact-pill" href="https://wa.me/9779802890267" target="_blank" rel="noopener"><span class="ic">💬</span><div><b>Prefer WhatsApp?</b>+977 980-2890267</div></a>
+          <a class="contact-pill" href="mailto:Gauravneupane075@gmail.com"><span class="ic">✉️</span><div><b>Or email us</b>Gauravneupane075@gmail.com</div></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo"><span class="full">Puja Path<small>पूजा पथ</small></span></div>
+        <p>Authentic Hindu rituals, performed live by verified Pandits, for Nepali families wherever they live.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">◎</a>
+          <a href="https://wa.me/9779802890267" target="_blank" rel="noopener" aria-label="WhatsApp">✆</a>
+        </div>
+      </div>
+      <div><h5>Explore</h5><ul>
+        <li><a data-route="home" data-anchor="services">Services</a></li>
+        <li><a data-route="pandits">Pandits</a></li>
+        <li><a data-route="home" data-anchor="how">How It Works</a></li>
+        <li><a href="#">Festivals</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul></div>
+      <div><h5>Company</h5><ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Support</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+      </ul></div>
+      <div><h5>Contact</h5><ul>
+        <li><a href="https://wa.me/9779802890267" target="_blank" rel="noopener">WhatsApp: +977 980-2890267</a></li>
+        <li><a href="mailto:Gauravneupane075@gmail.com">Gauravneupane075@gmail.com</a></li>
+        <li><span style="opacity:.8;">Chitwan, Nepal</span></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Puja Path. All rights reserved.</span>
+      <div class="legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Refunds</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============ DATA ============ */
+const SERVICES = [
+  {icon:'🪔', slug:'satyanarayan', name:'Satyanarayan Puja', desc:'A devotion to Lord Vishnu for prosperity and harmony at home.', dur:'2.5 hrs', price:120},
+  {icon:'🔱', slug:'rudrabhishek', name:'Rudrabhishek', desc:'Sacred abhishek to Lord Shiva for protection and inner peace.', dur:'2 hrs', price:140},
+  {icon:'🕉️', slug:'shraddha', name:'Shraddha', desc:'Ancestral rites performed with full reverence and correct vidhi.', dur:'3 hrs', price:150},
+  {icon:'🪐', slug:'graha-shanti', name:'Graha Shanti', desc:'Planetary pacification puja to ease astrological obstacles.', dur:'2 hrs', price:130},
+  {icon:'🧵', slug:'bratabandha', name:'Bratabandha', desc:'Sacred thread ceremony marking a young one\u2019s coming of age.', dur:'4 hrs', price:220},
+  {icon:'💍', slug:'marriage', name:'Marriage Puja', desc:'Vedic wedding rituals guided with warmth and full ceremony.', dur:'Full day', price:400},
+  {icon:'🏠', slug:'house-warming', name:'House Warming', desc:'Griha Pravesh puja to bless a new home with positive energy.', dur:'2 hrs', price:110},
+  {icon:'🪷', slug:'lakshmi', name:'Lakshmi Puja', desc:'Invoking the goddess of wealth and abundance into your home.', dur:'1.5 hrs', price:100},
+  {icon:'📿', slug:'saraswati', name:'Saraswati Puja', desc:'Blessings for knowledge, wisdom, and the arts.', dur:'1.5 hrs', price:95},
+  {icon:'🐘', slug:'ganesh', name:'Ganesh Puja', desc:'Removing obstacles before any new beginning.', dur:'1 hr', price:85},
+  {icon:'🎂', slug:'birthday', name:'Birthday Puja', desc:'A blessing ritual for long life and good fortune.', dur:'1 hr', price:80},
+  {icon:'🚗', slug:'vehicle', name:'Vehicle Puja', desc:'Safety blessing for a new car, bike, or commercial vehicle.', dur:'45 min', price:60},
+];
+
+const PANDITS = [
+  {id:'krishna-acharya', name:'Pandit Krishna Prasad Acharya', tag:'Shraddha & Ancestral Rites', expLabel:'22 yrs', lang:'Nepali, Hindi, English', rating:'4.9', price:150, specialties:['Shraddha','Graha Shanti'], bio:'Trained in Varanasi and based in Kathmandu, Pandit Krishna ji has guided over 1,200 families through Shraddha and Pitru Paksha rituals, known for his calm, patient explanation of every step for the next generation.', img:'https://images.unsplash.com/photo-1582719471384-894fbb16e074?q=80&w=600&auto=format&fit=crop'},
+  {id:'ram-sharma', name:'Pandit Ram Bahadur Sharma', tag:'Rudrabhishek & Graha Shanti', expLabel:'18 yrs', lang:'Nepali, Sanskrit', rating:'4.8', price:140, specialties:['Rudrabhishek','Graha Shanti'], bio:'A third-generation Shiva temple priest from Pashupatinath lineage, Pandit Ram ji specializes in Rudrabhishek and planetary remedy pujas, performed with traditional Sanskrit chanting and clear ritual guidance.', img:'https://images.unsplash.com/photo-1601933513793-2e7c3d9c4b29?q=80&w=600&auto=format&fit=crop'},
+  {id:'govinda-joshi', name:'Pandit Govinda Lal Joshi', tag:'Wedding & Bratabandha Rites', expLabel:'27 yrs', lang:'Nepali, Hindi, Maithili', rating:'5.0', price:400, specialties:['Marriage Puja','Bratabandha'], bio:'Nepal\u2019s most requested wedding Pandit for the diaspora, Govinda ji has performed over 300 Vedic weddings and Bratabandha ceremonies worldwide, coordinating muhurat timing across multiple time zones with ease.', img:'https://images.unsplash.com/photo-1610375229690-fc931a0e7c70?q=80&w=600&auto=format&fit=crop'},
+  {id:'shyam-upadhyaya', name:'Pandit Shyam Sundar Upadhyaya', tag:'Satyanarayan & Lakshmi Puja', expLabel:'15 yrs', lang:'Nepali, English', rating:'4.7', price:120, specialties:['Satyanarayan Puja','Lakshmi Puja'], bio:'Known for warm, welcoming ceremonies, Shyam ji explains every mantra in plain English alongside Sanskrit, making him a favorite for families whose children are growing up abroad.', img:'https://images.unsplash.com/photo-1620207418302-439b387441b0?q=80&w=600&auto=format&fit=crop'},
+  {id:'hari-pandey', name:'Pandit Hari Prasad Pandey', tag:'Ganesh & Saraswati Puja', expLabel:'12 yrs', lang:'Nepali, Hindi', rating:'4.8', price:90, specialties:['Ganesh Puja','Saraswati Puja'], bio:'A scholar of Vedic literature and former gurukul teacher, Hari ji brings depth and devotion to Ganesh and Saraswati pujas — popular for new beginnings, exams, and academic milestones.', img:'https://images.unsplash.com/photo-1545167622-3a6ac756afa4?q=80&w=600&auto=format&fit=crop'},
+  {id:'mahesh-bhattarai', name:'Pandit Mahesh Raj Bhattarai', tag:'House Warming & Vehicle Puja', expLabel:'10 yrs', lang:'Nepali, English', rating:'4.6', price:100, specialties:['House Warming','Vehicle Puja'], bio:'Mahesh ji has blessed over 500 new homes and vehicles across Nepal and the diaspora, with a practical, efficient style that still honors every shastric requirement.', img:'https://images.unsplash.com/photo-1622253694489-073c81d927eb?q=80&w=600&auto=format&fit=crop'},
+  {id:'dinesh-lamichhane', name:'Pandit Dinesh Chandra Lamichhane', tag:'Birthday & Office Puja', expLabel:'9 yrs', lang:'Nepali, English, Hindi', rating:'4.7', price:75, specialties:['Birthday Puja','Vehicle Puja'], bio:'A favorite for shorter, joyful ceremonies, Dinesh ji performs birthday and office-opening pujas with warmth and energy, often joined live by extended family from multiple countries.', img:'https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=600&auto=format&fit=crop'},
+  {id:'bishnu-kandel', name:'Pandit Bishnu Datta Kandel', tag:'Graha Shanti & Jyotish', expLabel:'20 yrs', lang:'Nepali, Sanskrit, Hindi', rating:'4.9', price:135, specialties:['Graha Shanti'], bio:'A practicing Jyotish (Vedic astrologer) as well as priest, Bishnu ji is sought after for Graha Shanti pujas tailored to an individual\u2019s birth chart, with personalized remedy guidance after the ritual.', img:'https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=600&auto=format&fit=crop'},
+  {id:'surya-khanal', name:'Pandit Surya Narayan Khanal', tag:'Shraddha & Pitru Rituals', expLabel:'25 yrs', lang:'Nepali, Maithili, Hindi', rating:'4.9', price:155, specialties:['Shraddha'], bio:'One of the most senior Pandits in our network, Surya ji is trusted by families across generations for Shraddha and Pitru Paksha rites performed exactly as passed down through his own lineage.', img:'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=600&auto=format&fit=crop'},
+  {id:'tika-gautam', name:'Pandit Tika Ram Gautam', tag:'Marriage & Bratabandha', expLabel:'16 yrs', lang:'Nepali, English, Hindi', rating:'4.8', price:380, specialties:['Marriage Puja','Bratabandha'], bio:'Tika ji specializes in intimate, diaspora-friendly weddings and Bratabandha ceremonies, adapting ritual pacing thoughtfully for guests joining by video across very different time zones.', img:'https://images.unsplash.com/photo-1605648916361-9bc12ad6a569?q=80&w=600&auto=format&fit=crop'},
+];
+
+const TESTIMONIALS = [
+  {q:'We performed Satyanarayan puja from Sydney with Pandit Govinda ji \u2014 it felt as sacred as being home in Nepal.', name:'Sunita R.', loc:'Sydney, Australia', img:'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop'},
+  {q:'Booking was simple and the Pandit explained every mantra in English for my children. Truly thoughtful service.', name:'Bikash T.', loc:'Dallas, USA', img:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop'},
+  {q:'Graha Shanti puja arranged within two days, perfectly timed for our muhurat despite the time difference.', name:'Anita K.', loc:'London, UK', img:'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop'},
+  {q:'Our house warming puja brought the whole family together on video \u2014 grandparents joined from Chitwan too.', name:'Rajesh M.', loc:'Doha, Qatar', img:'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop'},
+];
+
+const WA_NUMBER = '9779802890267';
+const EMAIL = 'Gauravneupane075@gmail.com';
+
+/* ============ ROUTER ============ */
+let currentPandit = null;
+let currentService = null;
+
+function showPage(route){
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const el = document.getElementById('page-' + route);
+  if(el) el.classList.add('active');
+  document.querySelectorAll('nav.links a').forEach(a => a.classList.toggle('active', a.dataset.nav === route));
+  window.scrollTo({top:0, behavior:'instant' in window ? 'instant' : 'auto'});
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  if(route === 'booking') renderBookingPage();
+}
+
+function navigateTo(route, anchor){
+  showPage(route);
+  if(anchor){
+    setTimeout(() => {
+      const target = document.getElementById(anchor);
+      if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+    }, 60);
+  }
+}
+
+document.addEventListener('click', (e) => {
+  const el = e.target.closest('[data-route]');
+  if(!el) return;
+  e.preventDefault();
+  const route = el.dataset.route;
+  const anchor = el.dataset.anchor;
+  if(route === 'pandits' && el.dataset.service){ currentService = el.dataset.service; }
+  if(route === 'booking' && el.dataset.pandit){ currentPandit = el.dataset.pandit; }
+  navigateTo(route, anchor);
+});
+
+/* ============ RENDER: HOME ============ */
+const servicesGrid = document.getElementById('servicesGrid');
+SERVICES.forEach(s=>{
+  servicesGrid.insertAdjacentHTML('beforeend', `
+  <div class="service-card reveal">
+    <div class="service-icon">${s.icon}</div>
+    <h3>${s.name}</h3>
+    <p class="desc">${s.desc}</p>
+    <div class="service-meta"><span>${s.dur}</span><span class="price">From $${s.price}</span></div>
+    <a class="book-link" data-route="pandits" data-service="${s.slug}">Book Now <span>→</span></a>
+  </div>`);
+});
+
+const panditPreview = document.getElementById('panditPreview');
+PANDITS.slice(0,4).forEach(p=>{
+  panditPreview.insertAdjacentHTML('beforeend', `
+  <div class="pandit-card reveal">
+    <img class="pandit-photo" src="${p.img}" alt="${p.name}" loading="lazy">
+    <div class="pandit-body">
+      <h3>${p.name}</h3>
+      <span class="pandit-tag">${p.tag}</span>
+      <div class="pandit-meta">
+        <span>⭐ ${p.rating}</span>
+        <span>🕓 ${p.expLabel}</span>
+      </div>
+      <div class="pandit-actions">
+        <a class="btn btn-ghost" data-route="pandits">Details</a>
+        <a class="btn btn-primary" data-route="booking" data-pandit="${p.id}">Book</a>
+      </div>
+    </div>
+  </div>`);
+});
+
+const testiTrack = document.getElementById('testiTrack');
+TESTIMONIALS.forEach(t=>{
+  testiTrack.insertAdjacentHTML('beforeend', `
+  <div class="testi-card reveal">
+    <span class="quote-mark">“</span>
+    <div class="stars">★★★★★</div>
+    <p class="txt">${t.q}</p>
+    <div class="testi-who">
+      <img src="${t.img}" alt="${t.name}" loading="lazy">
+      <div><div class="name">${t.name}</div><div class="loc">${t.loc}</div></div>
+    </div>
+  </div>`);
+});
+
+/* ============ RENDER: PANDITS ============ */
+const allSpecialties = ['All', ...new Set(PANDITS.flatMap(p => p.specialties))];
+const filterBar = document.getElementById('filterBar');
+allSpecialties.forEach((s, i) => {
+  const chip = document.createElement('button');
+  chip.className = 'filter-chip' + (i === 0 ? ' active' : '');
+  chip.textContent = s;
+  chip.dataset.filter = s;
+  chip.type = 'button';
+  filterBar.appendChild(chip);
+});
+
+const allPandits = document.getElementById('allPandits');
+function renderPandits(filter){
+  allPandits.innerHTML = '';
+  const list = filter === 'All' ? PANDITS : PANDITS.filter(p => p.specialties.includes(filter));
+  list.forEach(p => {
+    allPandits.insertAdjacentHTML('beforeend', `
+    <div class="pandit-card reveal in" id="${p.id}">
+      <img class="pandit-photo" src="${p.img}" alt="${p.name}" loading="lazy">
+      <div class="pandit-body">
+        <h3>${p.name}</h3>
+        <span class="pandit-tag">${p.tag}</span>
+        <p class="pandit-bio">${p.bio}</p>
+        <div class="pandit-meta">
+          <span>⭐ ${p.rating}</span>
+          <span>🕓 ${p.expLabel}</span>
+          <span>🗣 ${p.lang}</span>
+        </div>
+        <div class="pandit-price">From $${p.price} per ceremony</div>
+        <div class="pandit-actions">
+          <a href="https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Namaste, I would like to ask about booking '+p.name+' for a puja.')}" target="_blank" rel="noopener" class="btn btn-ghost">Ask</a>
+          <a class="btn btn-primary" data-route="booking" data-pandit="${p.id}">Select & Book</a>
+        </div>
+      </div>
+    </div>`);
+  });
+}
+renderPandits('All');
+
+filterBar.addEventListener('click', (e) => {
+  const chip = e.target.closest('.filter-chip');
+  if(!chip) return;
+  filterBar.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+  chip.classList.add('active');
+  renderPandits(chip.dataset.filter);
+});
+
+/* ============ RENDER: BOOKING ============ */
+const panditSelect = document.getElementById('pandit');
+PANDITS.forEach(p => {
+  const opt = document.createElement('option');
+  opt.value = p.id;
+  opt.textContent = `${p.name} — ${p.tag}`;
+  panditSelect.appendChild(opt);
+});
+
+const serviceSelect = document.getElementById('service');
+SERVICES.forEach(s => {
+  const opt = document.createElement('option');
+  opt.value = s.slug;
+  opt.textContent = `${s.name} (from $${s.price})`;
+  serviceSelect.appendChild(opt);
+});
+
+const panditSlot = document.getElementById('panditSlot');
+
+function renderPanditSlot(){
+  const id = panditSelect.value;
+  const p = PANDITS.find(x => x.id === id);
+  if(!p){
+    panditSlot.innerHTML = `
+      <div class="no-pandit-banner">
+        <p>No Pandit selected yet. Browse profiles and pick the right fit for your ceremony.</p>
+        <a class="btn btn-ghost" data-route="pandits">Browse Pandits</a>
+      </div>`;
+    return;
+  }
+  panditSlot.innerHTML = `
+    <div class="selected-pandit-card">
+      <img src="${p.img}" alt="${p.name}">
+      <div class="info">
+        <h3>${p.name}</h3>
+        <span>${p.tag} · ⭐ ${p.rating} · ${p.expLabel} experience</span>
+      </div>
+      <a class="change-link" data-route="pandits">Change Pandit</a>
+    </div>`;
+}
+
+function updateSummary(){
+  const p = PANDITS.find(x => x.id === panditSelect.value);
+  const s = SERVICES.find(x => x.slug === serviceSelect.value);
+  document.getElementById('sumPandit').textContent = p ? p.name : '—';
+  document.getElementById('sumService').textContent = s ? s.name : '—';
+  document.getElementById('sumDate').textContent = document.getElementById('date').value || '—';
+  document.getElementById('sumTime').textContent = document.getElementById('time').value || '—';
+  document.getElementById('sumLang').textContent = document.getElementById('language').value || 'Nepali';
+  document.getElementById('sumPrice').textContent = s ? `$${s.price}` : '—';
+}
+
+function renderBookingPage(){
+  if(currentPandit && PANDITS.some(p => p.id === currentPandit)) panditSelect.value = currentPandit;
+  if(currentService && SERVICES.some(s => s.slug === currentService)) serviceSelect.value = currentService;
+  renderPanditSlot();
+  updateSummary();
+}
+
+panditSelect.addEventListener('change', () => { renderPanditSlot(); updateSummary(); });
+['service','date','time','language'].forEach(id => {
+  document.getElementById(id).addEventListener('change', updateSummary);
+});
+
+document.getElementById('bookingForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const banner = document.getElementById('confirmBanner');
+  banner.classList.add('show');
+  banner.scrollIntoView({behavior:'smooth', block:'start'});
+
+  const p = PANDITS.find(x => x.id === panditSelect.value);
+  const s = SERVICES.find(x => x.slug === serviceSelect.value);
+  const msg = `Namaste, I'd like to book:\nPandit: ${p ? p.name : 'Not selected'}\nService: ${s ? s.name : ''}\nDate: ${document.getElementById('date').value}\nTime: ${document.getElementById('time').value}\nCountry: ${document.getElementById('country').value}\nLanguage: ${document.getElementById('language').value}\nContact: ${document.getElementById('contactNumber').value}\nEmail: ${document.getElementById('email').value}\nRequests: ${document.getElementById('requests').value}`;
+  const existing = document.getElementById('waConfirmLink');
+  if(existing) existing.remove();
+  const waLink = document.createElement('a');
+  waLink.id = 'waConfirmLink';
+  waLink.href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+  waLink.target = '_blank';
+  waLink.rel = 'noopener';
+  waLink.className = 'btn btn-primary';
+  waLink.style.marginTop = '10px';
+  waLink.textContent = 'Send Details on WhatsApp';
+  banner.appendChild(waLink);
+});
+
+/* ============ HEADER SCROLL ============ */
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 30));
+
+/* ============ REVEAL ON SCROLL ============ */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); observer.unobserve(e.target); } });
+}, {threshold:.15});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/* ============ THEME TOGGLE ============ */
+const themeToggle = document.getElementById('themeToggle');
+const body = document.body;
+function setTheme(t){ body.setAttribute('data-theme', t); localStorage.setItem('pp-theme', t); }
+themeToggle.addEventListener('click', () => setTheme(body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+const saved = localStorage.getItem('pp-theme');
+if(saved) setTheme(saved);
+else if(window.matchMedia('(prefers-color-scheme: dark)').matches) setTheme('dark');
+
+/* ============ BUTTON RIPPLE ============ */
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.btn');
+  if(!btn) return;
+  const r = document.createElement('span');
+  r.className = 'ripple';
+  const rect = btn.getBoundingClientRect();
+  r.style.left = (e.clientX - rect.left) + 'px';
+  r.style.top = (e.clientY - rect.top) + 'px';
+  btn.appendChild(r);
+  setTimeout(() => r.remove(), 650);
+});
+
+/* ============ AMBIENT FLOATING DIYAS ============ */
+const ambient = document.getElementById('ambient');
+const NUM = window.innerWidth < 700 ? 8 : 18;
+for(let i = 0; i < NUM; i++){
+  const d = document.createElement('div');
+  d.className = 'diya';
+  const size = 3 + Math.random() * 5;
+  d.style.width = d.style.height = size + 'px';
+  d.style.left = Math.random() * 100 + '%';
+  d.style.top = Math.random() * 100 + '%';
+  d.style.opacity = .2 + Math.random() * .45;
+  d.style.animation = `floaty ${10 + Math.random() * 14}s ease-in-out ${Math.random() * 6}s infinite`;
+  ambient.appendChild(d);
+}
+
+/* ============ INIT ============ */
+showPage('home');
+</script>
+</body>
+</html>
